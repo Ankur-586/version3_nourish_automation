@@ -1,0 +1,128 @@
+----------------------------------------------------------------------------
+Steps to setup the project:
+---------------------------
+Step 1: First create a virtual env file:
+        python -m venv venv
+
+Step 2: Activate virtual env in windows:
+        venv/Scripts/activate
+        
+        For Ubuntu/linux:
+        source venv/bin/activate
+
+Step 3: Run the below commond to install the packages
+        pip install -r requirements.txt
+
+        below packages will get installed:
+        1. pip install pandas
+        2. pip install fake-useragent
+        3. pip install selenium
+
+Step 4: Run the script:
+        python email_script.py
+
+** To Make requirements.txt file run below commond:
+   pip freeze > requirements.txt
+
+optional_step: can also create workflow settings for current.
+steps1: ctrl + shift + p: opens Preferences: Open Workspace Settings (JSON)
+AND a work flow is created.
+
+Docs: https://selenium-python.readthedocs.io/waits.html
+----------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------
+Packages:
+---------
+pip install selenium
+pip install fake-useragent
+pip install pytest
+
+For Reports:
+------------
+pip install pytest-html
+pip install allure-pytest
+
+To Run Tests in parallel:
+With pytest: You can use the pytest-xdist plugin to run tests in parallel.
+----------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------
+Search Terms:
+-------------
+-> how to get the name of all dropdown elements in selenium python
+-> how to get the name options of all dropdown elements in selenium python
+-> how to get the name options label of all dropdown elements in selenium python 
+-> which testing framework do you prefer for automation testing python
+-> how to manage otp number box in selenium python headless mode
+-> having too many try except causes the code to be slow?
+-> i am developing a automation script for automating webisite testing. 
+   i want is after developing the scripts and after deployment. I want 
+   that if i write test cases and deploy them then the testing should 
+   happend according to it and automatically.
+-> Provide the structure for a project that is being developed for e-commerce 
+   website automation testing using Python and pytest.
+----------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------
+POM Structure:
+--------------
+1.
+my_project/      
+├── settings/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── test.py
+│   └── log_config.json
+└── pages
+│   └── login_window.py    
+└── tests/
+    └── test_loginWindow.py  
+
+2. 
+my_project/
+├── settings/                # Configuration and settings
+│   ├── __init__.py
+│   ├── config.py            # Configuration settings for the test environment (URLs, credentials)
+│   ├── test.py              # Base test setup (TestNG, pytest, etc.)
+│   └── log_config.json      # Logging configuration
+├── pages/                   # Page Object Model classes
+│   ├── __init__.py
+│   └── login_window.py      # Page Object for Login
+├── tests/                   # Test scripts
+│   ├── __init__.py
+│   └── test_loginWindow.py  # Test for Login functionality
+├── drivers/                 # WebDriver executables (e.g., chromedriver, geckodriver)
+│   └── chromedriver         # ChromeDriver (or WebDriver Manager if you are using it)
+├── logs/                    # Log files (generated during tests)
+│   └── test_execution.log   # Test execution log
+├── .gitignore               # Git ignore for unnecessary files
+├── README.md                # Template documentation for the framework
+└── requirements.txt         # Python dependencies if using pip 
+----------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------
+Commands:
+---------
+To run the codes from zextra folder : python -m zextra.website
+                                      -------------------------
+
+To run test with allure : python -m pytest --alluredir allure-results 
+                          -------------------------------------------
+
+To run test with pytestHtml : python -m pytest --maxfail=3 --disable-warnings --html=report.html
+                              ------------------------------------------------------------------
+
+To convert the allure to report version : allure serve allure-results
+                                          -------------------------------------------------
+
+To get allure version : allure --version
+
+Allure-github : https://github.com/allure-framework/allure2/releases
+------------------------------------------------------------------------------------------------
+ 
+how do i Convert a base automation testing framework using POM (Page Object Model) structure into a template repo on GitHub

@@ -1,0 +1,110 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "json": {
+            "class": "logging.Formatter",
+            "format": "%(asctime)s - %(name)s - %(levelname)s - %(pathname)s - %(filename)s - %(module)s - %(funcName)s - %(lineno)d - %(message)s"
+        },
+        "json_sel": {
+            "class": "logging.Formatter",
+            "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        }
+    },
+    "handlers": {
+        "general_file_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "json",
+            "filename": "logs/general/general.log",
+            "maxBytes": 10485760,
+            "backupCount": 3,
+            "encoding": "utf8"
+        },
+        "exception_file_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "ERROR",
+            "formatter": "json",
+            "filename": "logs/exceptions/app_exceptions.log",
+            "maxBytes": 10485760,
+            "backupCount": 3,
+            "encoding": "utf8"
+        },
+        "selenium_general_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "DEBUG",
+            "formatter": "json_sel",
+            "filename": "logs/selenium/selenium_general.log",
+            "maxBytes": 10485760,
+            "backupCount": 3,
+            "encoding": "utf8"
+        },
+        "selenium_error_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "ERROR",
+            "formatter": "json_sel",
+            "filename": "logs/selenium/selenium_errors.log",
+            "maxBytes": 10485760,
+            "backupCount": 3,
+            "encoding": "utf8"
+        }
+    },
+    "loggers": {
+        "root": {
+            "level": "DEBUG",
+            "handlers": [
+                "general_file_handler"
+            ],
+            "propagate": true
+        },
+        "exception_logger": {
+            "level": "ERROR",
+            "handlers": [
+                "exception_file_handler"
+            ],
+            "propagate": false
+        },
+        "selenium_logger": {
+            "level": "DEBUG", 
+            "handlers": [
+                "selenium_general_handler"
+            ],
+            "propagate": false
+        },
+        "selenium.webdriver.common.service": {
+            "level": "DEBUG",  
+            "handlers": [
+                "selenium_general_handler"
+            ],
+            "propagate": false
+        },
+        "selenium.webdriver.common.selenium_manager": {
+            "level": "DEBUG",  
+            "handlers": [
+                "selenium_general_handler"
+            ],
+            "propagate": false
+        },
+        "selenium.webdriver.remote.remote_connection": {
+            "level": "DEBUG",
+            "handlers": [
+                "selenium_general_handler"
+            ],
+            "propagate": false
+        },
+        "urllib3.connectionpool": {
+            "level": "DEBUG",  
+            "handlers": [
+                "selenium_general_handler"
+            ],
+            "propagate": false
+        },
+        "selenium_error_logger": {
+            "level": "ERROR",  
+            "handlers": [
+                "selenium_error_handler"
+            ],
+            "propagate": false
+        }
+    }
+}
