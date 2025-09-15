@@ -15,7 +15,7 @@ def driver_setup():
     yield driver  
     driver.quit()
     
-def test_open_webSite(driver_setup):
+def dont_test_open_webSite(driver_setup):
     driver = driver_setup
     try:
         driver.get("https://v3-store.nourishstore.in/")
@@ -25,9 +25,9 @@ def test_open_webSite(driver_setup):
         pytest.fail(f"Failed to load website: {e}")
         driver.close()
         
-def dont_test_openloginWindow(driver_setup):
+def test_openloginWindow(driver_setup):
     driver = driver_setup
-    driver.get("https://www.saucedemo.com/")
+    driver.get("https://v3-store.nourishstore.in/")
     openLogin_window = LoginWindow(driver)
     
     assert openLogin_window.open_login_window(), "Login window did not open as expected"
