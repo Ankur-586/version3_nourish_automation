@@ -1,0 +1,52 @@
+===========================
+ CSS SELECTORS CHEAT SHEET
+===========================
+
+tag                 → div                  (all <div> elements)
+.class              → .btn-primary         (elements with class)
+#id                 → #loginBtn            (element with ID)
+tag.class           → button.submit        (<button class="submit">)
+parent child        → div svg              (<svg> inside <div>)
+parent > child      → div > svg            (direct child only)
+[attr=value]        → input[type='text']   (attribute equals value)
+[attr^=val]         → input[name^='user']  (attribute starts with val)
+[attr$=val]         → img[src$='.png']     (attribute ends with val)
+[attr*=val]         → a[href*='login']     (attribute contains val)
+:nth-child(n)       → li:nth-child(2)      (2nd <li>)
+:first-child        → li:first-child       (first <li>)
+:last-child         → li:last-child        (last <li>)
+
+Notes:
+- Escape special chars like hover:text-red-500 → hover\\:text-red-500
+- Faster and cleaner than XPath, prefer CSS when possible.
+
+===========================
+ XPATH CHEAT SHEET
+===========================
+
+Select all tags        → //div
+By attribute           → //input[@id='username']
+Contains attribute     → //div[contains(@class,'cursor-pointer')]
+Starts with attribute  → //input[starts-with(@name,'user')]
+By exact text          → //button[text()='Login']
+By partial text        → //span[contains(text(),'Error')]
+Parent > child         → //div/svg
+Parent >> descendant   → //div//span
+Nth element            → (//button)[2]
+Any tag with attr      → //*[@id='loginBtn']
+Select parent          → //span/..
+
+Notes:
+- Use // for anywhere in DOM, / for direct child.
+- More powerful but slower than CSS.
+- Useful for text matching and navigating parent/child.
+
+===========================
+ QUICK TIPS
+===========================
+- Prefer ID → CSS → XPath in that order.
+- Always test selectors in DevTools:
+    CSS: document.querySelectorAll("selector")
+    XPath: $x("xpath_here")
+- Make selectors stable (avoid brittle ones like nth-child).
+
