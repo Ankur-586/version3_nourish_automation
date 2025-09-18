@@ -10,7 +10,7 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 class LoginWindow:
     def __init__(self, driver):
         self.driver = driver
-        self.login_svg_button_navbar = "div.align-bottom svg"
+        self.login_svg_button_navbar = "div.cursor-pointer svg"
         self.form_field_user_name_id = 'user-name'
         self.form_field_user_password_id = 'password'
         self.error_message_container = 'error-message-container'
