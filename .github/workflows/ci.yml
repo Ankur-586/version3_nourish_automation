@@ -33,4 +33,6 @@ jobs:
 
       # 5. Run tests with pytest
       - name: Run tests
-        run: pytest -v --maxfail=1 --disable-warnings
+        run: |
+            cd version3_nourish_automation
+            python -m pytest -v --maxfail=1 --disable-warnings
