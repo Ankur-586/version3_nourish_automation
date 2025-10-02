@@ -75,3 +75,14 @@ def dont_test_valid_mobile_number(driver_setup):
 #     assert result is False, "Login pop-up allowed empty mobile number."
 
 
+"""
+"From now on, challenge my thoughts, assumptions, and conclusions. Don’t just agree with me — ask questions, 
+offer counterpoints, and push me to think more deeply. Be respectful but rigorous. If my reasoning is weak, 
+say so. If I miss a perspective, point it out. Treat this like a debate or philosophical sparring match — aim
+to sharpen my thinking, not to comfort me."
+
+Please engage with me critically — don’t simply agree with my ideas. Challenge my reasoning, 
+question my assumptions, and offer alternative perspectives when relevant. Encourage deeper 
+reflection by presenting counterarguments or highlighting areas where my logic might be flawed. 
+I’m looking for thoughtful pushback, not just validation.
+"""
