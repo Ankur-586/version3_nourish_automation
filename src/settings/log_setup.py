@@ -1,4 +1,4 @@
-import logging, pathlib, json, os
+import logging, pathlib, json
 import logging.config
 
 def ensure_log_folders():
