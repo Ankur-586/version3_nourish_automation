@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from settings.log_setup import general_logger, exception_logger
+from src.settings.log_setup import general_logger, exception_logger
 
 from fake_useragent import UserAgent
 
