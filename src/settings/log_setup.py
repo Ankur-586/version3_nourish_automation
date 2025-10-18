@@ -21,7 +21,7 @@ def setup_logging():
     """Sets up logging configuration based on the log_config.json file."""
     ensure_log_folders()
 
-    settings_folder = pathlib.Path('settings')
+    settings_folder = pathlib.Path(__file__).resolve().parent
     config_file = settings_folder / 'log_config.json'
 
     if not settings_folder.exists() or not config_file.exists():

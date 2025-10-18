@@ -51,6 +51,7 @@ class WebDriverSetup:
             general_logger.info(f"WebDriver setup complete with User-Agent: {self.user_agent}")
         except Exception as e:
             exception_logger.error(f"{e}")
+            raise
         
         return self.driver
     
