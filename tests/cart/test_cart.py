@@ -1,1 +1,1 @@
-from settings.config import WebDriverSetup
+from src.settings.config import WebDriverSetup

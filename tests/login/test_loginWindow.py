@@ -1,7 +1,7 @@
-from settings.config import WebDriverSetup
-from settings.log_setup import general_logger, exception_logger
+from src.settings.config import WebDriverSetup
+from src.settings.log_setup import general_logger, exception_logger
 
-from pages.login_window import LoginWindow
+from src.pages.login_window import LoginWindow
 
 import pytest
 
