@@ -20,7 +20,7 @@ class LoginWindow:
         self.otp_box_5 = "input[aria-label='Please enter OTP character 5']"
         self.otp_box_6 = "input[aria-label='Please enter OTP character 6']"
         self.otp_submit_button = "button[type='submit']"
-    
+     
     def wait_for_element(self, by, locator, timeout=10):
         try:
             return WebDriverWait(self.driver, timeout).until(
