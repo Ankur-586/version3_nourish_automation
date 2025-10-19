@@ -30,7 +30,7 @@ class LoginWindow:
             exception_logger.error(f"Element {locator} not found: {e}")
             return None
     
-    def open_login_window(self):
+    def open_login_window(self, input_field_mobile):
         try:
             login_window = self.wait_for_element(By.CSS_SELECTOR, self.login_svg_button_navbar)
             if login_window:
@@ -38,8 +38,8 @@ class LoginWindow:
                 general_logger.info("Login Pop Up Window Click")
 
                 mobile_input_box = self.wait_for_element(By.CSS_SELECTOR, self.form_field_mobile_input_box)
-                mobile_input_box.send_keys("8884154409")
-                
+                mobile_input_box.send_keys(input_field_mobile)
+                time.sleep(2)
                 continue_button = self.wait_for_element(By.CSS_SELECTOR, self.form_field_continue_button)
                 continue_button.click()
                 

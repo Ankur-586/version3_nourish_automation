@@ -10,7 +10,7 @@ def driver_setup():
     """
     This fixture sets up the WebDriver and performs product search actions.
     """
-    web_driver_setup = WebDriverSetup(headless=True)  # Change to True for headless mode
+    web_driver_setup = WebDriverSetup(headless=False)  # Change to True for headless mode
     driver = web_driver_setup.setup_driver()
     yield driver  
     driver.quit()
@@ -25,24 +25,41 @@ def dont_test_open_webSite(driver_setup):
         pytest.fail(f"Failed to load website: {e}")
         driver.close()
         
-def test_openloginWindow(driver_setup):
+def dont_test_openloginWindow(driver_setup):
     driver = driver_setup
     driver.get("https://v3-store.nourishstore.in/")
     openLogin_window = LoginWindow(driver)
     
     assert openLogin_window.open_login_window(), "Login window did not open as expected"
 
-def dont_test_valid_mobile_number(driver_setup):
+@pytest.mark.parametrize("mobile_number,expected_result", [
+    ("8884154409", True),
+    ("8197379608", True),
+    ("123", False),
+    ("", False)
+])
+
+def test_login_window(driver_setup, mobile_number, expected_result):
+    driver = driver_setup
+    driver.get("https://v3-store.nourishstore.in/")
+    login_window = LoginWindow(driver)
+    result = login_window.open_login_window(mobile_number)
+    assert result == expected_result, f"Mobile number '{mobile_number}' result mismatch"
+
+def no_test_valid_mobile_number(driver_setup):
     """
     Test case for valid mobile number input in the login form.
     """
     driver = driver_setup
-    driver.get("https://nourishstore.in/")
+    driver.get("https://v3-store.nourishstore.in/")
     login_window = LoginWindow(driver)
-    test_inputs = ["8884154409", "123", ""]
+    test_inputs = ["8884154409", "8197379608", "", "123"]
     for input in test_inputs:
-        result = login_window.get_login_window(input)
+        result = login_window.open_login_window(input)
         if input == "8884154409":  # Valid number
+            assert result is True, f"Valid Mobile Number '{input}' should work, but it didn't."
+        
+        if input == "8197379608":  # Valid number
             assert result is True, f"Valid Mobile Number '{input}' should work, but it didn't."
         
         elif input == "123":  # Invalid number (e.g., too short or incorrect format)
