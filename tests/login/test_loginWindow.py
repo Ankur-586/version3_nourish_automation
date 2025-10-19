@@ -10,7 +10,7 @@ def driver_setup():
     """
     This fixture sets up the WebDriver and performs product search actions.
     """
-    web_driver_setup = WebDriverSetup(headless=False)  # Change to True for headless mode
+    web_driver_setup = WebDriverSetup(headless=True)  # Change to True for headless mode
     driver = web_driver_setup.setup_driver()
     yield driver  
     driver.quit()
